@@ -7,9 +7,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.canjun.bus2.EventBus;
 import com.canjun.eventbus1.msg.MessageEvent;
 
-import org.greenrobot.eventbus.EventBus;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -23,7 +23,7 @@ public class SecondActivity extends AppCompatActivity {
             public void onClick(View v) {
                 MessageEvent msg = new MessageEvent();
                 msg.text="from Second";
-                EventBus.getDefault().postSticky(msg);
+                EventBus.getDefault().post(msg);
             }
         });
     }

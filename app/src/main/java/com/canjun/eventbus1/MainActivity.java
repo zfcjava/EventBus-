@@ -8,11 +8,10 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.canjun.bus2.EventBus;
+import com.canjun.bus2.annotation.Subscribe;
+import com.canjun.bus2.mode.ThreadMode;
 import com.canjun.eventbus1.msg.MessageEvent;
-
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         TextView tv = findViewById(R.id.tv);
-        EventBus.builder().addIndex(new MyEventBusIndex()).installDefaultEventBus();
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,11 +40,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        EventBus.getDefault().unregister(this);
+//        EventBus.getDefault().unregister(this);
 
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN,sticky = true,priority = 1)
+    @Subscribe(threadMode = ThreadMode.MAIN)
     public void handleMessageEvent(MessageEvent msg){
         Toast.makeText(MainActivity.this,msg.text,0).show();
     }
