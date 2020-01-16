@@ -8,10 +8,11 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.canjun.bus2.EventBus;
-import com.canjun.bus2.annotation.Subscribe;
-import com.canjun.bus2.mode.ThreadMode;
+import com.canjun.eventbus.EventBus;
+import com.canjun.eventbus1.apt.EventBusIndex;
 import com.canjun.eventbus1.msg.MessageEvent;
+import com.canjun.eventbus_anntation.Subscribe;
+import com.canjun.eventbus_anntation.ThreadMode;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         TextView tv = findViewById(R.id.tv);
+        EventBus.getDefault().addIndex(new EventBusIndex());
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.canjun.bus2.EventBus;
+import com.canjun.eventbus.EventBus;
 import com.canjun.eventbus1.msg.MessageEvent;
 
 
