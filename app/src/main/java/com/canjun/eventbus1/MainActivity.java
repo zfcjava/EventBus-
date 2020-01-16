@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         TextView tv = findViewById(R.id.tv);
+        EventBus.builder().addIndex(new MyEventBusIndex()).installDefaultEventBus();
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
+    @Subscribe(threadMode = ThreadMode.MAIN,sticky = true,priority = 1)
     public void handleMessageEvent(MessageEvent msg){
         Toast.makeText(MainActivity.this,msg.text,0).show();
     }

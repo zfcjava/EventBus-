@@ -23,7 +23,7 @@ public class SecondActivity extends AppCompatActivity {
             public void onClick(View v) {
                 MessageEvent msg = new MessageEvent();
                 msg.text="from Second";
-                EventBus.getDefault().post(msg);
+                EventBus.getDefault().postSticky(msg);
             }
         });
     }
