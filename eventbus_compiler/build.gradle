@@ -1,0 +1,13 @@
+apply plugin: 'java-library'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':eventbus_annotation')
+    compileOnly'com.google.auto.service:auto-service:1.0-rc4'
+    annotationProcessor'com.google.auto.service:auto-service:1.0-rc4'
+    //引入javaPoet
+    implementation 'com.squareup:javapoet:1.9.0'
+}
+
+sourceCompatibility = "7"
+targetCompatibility = "7"

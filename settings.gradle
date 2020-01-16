@@ -1,2 +1,2 @@
-include ':app', ':bus2'
+include ':app', ':eventbus', ':eventbus_annotation', ':eventbus_compiler',
 rootProject.name='Eventbus1'
